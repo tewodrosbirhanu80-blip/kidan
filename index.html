@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidan | Ethiopian Dating</title>
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <div class="hero">
+        <nav class="navbar">
+            <div class="logo">KIDAN</div>
+            <button class="nav-login-btn" onclick="openModal('loginModal')">Log in</button>
+        </nav>
+
+        <div class="hero-content">
+            <h1>Swipe Right®</h1>
+            <button class="cta-btn" onclick="openModal('phoneModal')">Create account</button>
+        </div>
+    </div>
+
+    <div id="phoneModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('phoneModal')">&times;</span>
+            <h2>Enter Phone Number</h2>
+            <div class="phone-input-container">
+                <span>+251</span>
+                <input type="tel" id="phoneNumber" placeholder="9xxxxxxxx" maxlength="9">
+            </div>
+            <button class="form-btn" onclick="goToVerify()">CONTINUE</button>
+        </div>
+    </div>
+
+    <div id="verifyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('verifyModal')">&times;</span>
+            <h2>Verify Code</h2>
+            <p>Enter the code sent to your phone.</p>
+            <input type="text" id="otpCode" placeholder="· · · · · ·" style="text-align: center; letter-spacing: 10px; font-size: 24px;">
+            <button class="form-btn" onclick="verifyAndRedirect()">VERIFY</button>
+        </div>
+    </div>
+
+    <script src="landing.js"></script>
+</body>
+</html>

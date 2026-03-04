@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidan | My Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="profile-app">
+        <header class="profile-header">
+            <button onclick="window.location.href='app.html'">◀</button>
+            <h2>Edit Profile</h2>
+            <button class="save-btn" onclick="saveProfile()">Done</button>
+        </header>
+
+        <div class="profile-main">
+            <div class="photo-grid">
+                <div class="photo-slot main-photo" id="photoPreview">
+                    <span>+</span>
+                    <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)">
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <label>Full Name</label>
+                <input type="text" id="userName" placeholder="Enter your name">
+                
+                <label>Age</label>
+                <input type="number" id="userAge" placeholder="20">
+                
+                <label>Bio</label>
+                <textarea id="userBio" placeholder="Tell us about yourself..."></textarea>
+            </div>
+
+            <div class="settings-group">
+                <label>Location</label>
+                <select>
+                    <option>Addis Ababa</option>
+                    <option>Adama</option>
+                    <option>Bahir Dar</option>
+                    <option>Hawassa</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('photoPreview');
+                output.style.backgroundImage = `url('${reader.result}')`;
+                output.style.backgroundSize = 'cover';
+                output.style.backgroundPosition = 'center';
+                output.innerHTML = ""; // Clear the "+" icon
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function saveProfile() {
+            alert("Profile Updated Successfully!");
+            window.location.href = 'app.html';
+        }
+    </script>
+</body>
+</html>

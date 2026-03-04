@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidan | Messages</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <div class="chat-app">
+        <header class="chat-header">
+            <button onclick="window.location.href='app.html'">◀</button>
+            <h2>Messages</h2>
+            <div></div>
+        </header>
+
+        <div class="matches-row">
+            <div class="match-item"><img src="images/mellat.png"><span>Mellat</span></div>
+            <div class="match-item"><img src="images/hanna.png"><span>Hanna</span></div>
+            <div class="match-item"><img src="images/helen.png"><span>Helen</span></div>
+        </div>
+
+        <div class="chat-box" id="chatBox">
+            <div class="msg received">Selam! How are you?</div>
+            <div class="msg sent">I'm doing great, thanks!</div>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="msgInput" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('msgInput');
+            const chatBox = document.getElementById('chatBox');
+            
+            if (input.value.trim() !== "") {
+                const newMsg = document.createElement('div');
+                newMsg.className = 'msg sent';
+                newMsg.innerText = input.value;
+                chatBox.appendChild(newMsg);
+                input.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
